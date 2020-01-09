@@ -1,0 +1,183 @@
+GCCcore/5.4.0
+
+###### FINE-TUNING TEXT ENCODERS
+@@fine-tune bert on medsts
+python /home/dc925/project/medsts/code/finetune_text_encoder.py \
+    --model_type bert \
+    --model_name_or_path /home/dc925/project/models/clinicalbert \
+    --config_name /home/dc925/project/models/clinicalbert/bert_config.json \
+    --do_train  \
+    --do_eval   \
+    --task_name=medsts     \
+    --data_dir=/home/dc925/project/data/seq_pair/MEDSTS/k_fold_0  \
+    --output_dir=/home/dc925/project/medsts/output/finetuning   \
+    --per_gpu_train_batch_size=16   \
+    --overwrite_output_dir   \
+    --overwrite_cache \
+    --do_lower_case \
+    --evaluate_during_training \
+    --learning_rate 9e-5 \
+    --weight_decay 5e-4 \
+    --num_train_epochs 4
+
+####################################################################################
+
+
+
+###########################################
+experiment: testing different pretrained models
+@@ncbi bert
+python /home/dc925/project/medsts/code/main.py \
+--text_encoder_checkpoint /home/dc925/project/models/ncbi_bert \
+--config_name /home/dc925/project/models/ncbi_bert/bert_config.json \
+--do_train \
+--do_eval \
+--task_name medsts \
+--data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0 \
+--output_dir /home/dc925/project/medsts/output/ncbi_bert \
+--per_gpu_train_batch_size=12 \
+--learning_rate 1e-4 \
+--graph_lr 2e-3 \
+--weight_decay 5e-4 \
+--num_train_epochs 2 \
+--overwrite_output_dir \
+--overwrite_cache \
+--evaluate_during_training \
+--do_lower_case \
+--do_layernorm \
+--df \
+--augment
+
+@@scibert
+python /home/dc925/project/medsts/code/main.py \
+--text_encoder_checkpoint /home/dc925/project/models/scibert_scivocab_uncased \
+--config_name /home/dc925/project/models/scibert_scivocab_uncased/bert_config.json \
+--do_train \
+--do_eval \
+--task_name medsts \
+--data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4 \
+--output_dir /home/dc925/project/medsts/output/scibert_test \
+--per_gpu_train_batch_size=12 \
+--learning_rate 1.4e-4 \
+--graph_lr 1.2e-3 \
+--weight_decay 5e-4 \
+--num_train_epochs 3 \
+--overwrite_output_dir \
+--overwrite_cache \
+--evaluate_during_training \
+--do_lower_case \
+--df \
+--augment
+
+@@mt_dnn_base
+python /home/dc925/project/medsts/code/main.py \
+--text_encoder_checkpoint /home/dc925/project/models/mt_dnn_base \
+--config_name /home/dc925/project/models/mt_dnn_base/config.json \
+--do_train \
+--do_eval \
+--task_name medsts \
+--data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4 \
+--output_dir /home/dc925/project/medsts/output/test \
+--per_gpu_train_batch_size=12 \
+--learning_rate 8e-5 \
+--graph_lr 1.4e-3 \
+--weight_decay 5e-4 \
+--num_train_epochs 2 \
+--overwrite_output_dir \
+--overwrite_cache \
+--evaluate_during_training \
+--do_lower_case \
+--df \
+--augment
+
+
+
+##testing layernorm w clinibert
+python /home/dc925/project/medsts/code/main.py \
+--text_encoder_checkpoint /home/dc925/project/models/clinicalbert \
+--config_name /home/dc925/project/models/clinicalbert/bert_config.json \
+--do_train \
+--do_eval \
+--task_name medsts \
+--data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4 \
+--output_dir=/home/dc925/project/medsts/output/testing_new_code \
+--per_gpu_train_batch_size=12 \
+--learning_rate=8e-5 \
+--graph_lr=1e-3 \
+--weight_decay 5e-4 \
+--num_train_epochs 2 \
+--overwrite_cache \
+--overwrite_output_dir \
+--evaluate_during_training \
+--do_lower_case \
+--df \
+--augment \
+--do_layernorm
+
+
+
+##CURRENT STANDARD
+i=0
+for LR in 1e-4; do
+    for GLR in 1e-3; do
+        for k in 0 1 2 3 4; do
+
+        OUTPUT_DIR=/home/dc925/project/medsts/output/basic/run_${i}/k_fold_${k}
+        MODEL=clinicalbert
+
+        mkdir -p $OUTPUT_DIR
+
+        python /home/dc925/project/medsts/code/main.py \
+        --text_encoder_checkpoint /home/dc925/project/models/$MODEL \
+        --config_name /home/dc925/project/models/$MODEL/bert_config.json \
+        --do_train \
+        --do_eval \
+        --task_name medsts \
+        --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_${k} \
+        --output_dir=$OUTPUT_DIR \
+        --per_gpu_train_batch_size=12 \
+        --weight_decay 5e-4 \
+        --overwrite_cache \
+        --overwrite_output_dir \
+        --evaluate_during_training \
+        --do_lower_case \
+        --augment \
+        --df \
+        --num_train_epochs 2 \
+        --learning_rate=$LR \
+        --graph_lr=$GLR \
+        --aux 'all'
+        
+
+
+        echo lr $LR > $OUTPUT_DIR/hyperparams.txt
+
+        done
+    i=$((i+1))
+    done
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

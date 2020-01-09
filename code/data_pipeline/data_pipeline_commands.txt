@@ -1,0 +1,57 @@
+python metamap_utils.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0
+python metamap_utils.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1
+python metamap_utils.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2
+python metamap_utils.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3
+python metamap_utils.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4
+
+python metamap_utils.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_6
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0/train_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0/dev_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0/dev_mm_output.txt
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1/train_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1/dev_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1/dev_mm_output.txt
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2/train_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2/dev_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2/dev_mm_output.txt
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3/train_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3/dev_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3/dev_mm_output.txt
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4/train_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4/dev_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4/dev_mm_output.txt
+
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_6/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_6/train_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/k_fold_6/dev_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/k_fold_6/dev_mm_output.txt
+
+
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/test_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/test_mm_output.txt
+metamap -R SNOMEDCT_US -IjgG --negex --conj --no_nums all --JSONn --exclude_sts geoa,chvs,aapp,amas,plnt,humn,bird,food,moft,mamm,fish,celf /home/dc925/project/data/seq_pair/MEDSTS/final_set/train_mm_input.txt /home/dc925/project/data/seq_pair/MEDSTS/final_set/train_mm_output.txt
+
+
+
+python construct_graphs.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0
+python construct_graphs.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1
+python construct_graphs.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2
+python construct_graphs.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3
+python construct_graphs.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4
+
+python construct_graphs.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_6
+
+
+
+python data_augmentation.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_0 --logits_dir /home/dc925/project/medsts/logits/fold_0_logits.csv
+python data_augmentation.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_1 --logits_dir /home/dc925/project/medsts/logits/fold_1_logits.csv
+python data_augmentation.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_2 --logits_dir /home/dc925/project/medsts/logits/fold_2_logits.csv
+python data_augmentation.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_3 --logits_dir /home/dc925/project/medsts/logits/fold_3_logits.csv
+python data_augmentation.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_4 --logits_dir /home/dc925/project/medsts/logits/fold_4_logits.csv
+
+python data_augmentation.py --data_dir /home/dc925/project/data/seq_pair/MEDSTS/k_fold_9 --logits_dir /home/dc925/project/medsts/logits/
+
+
+GET LOGITS
+python get_logits.py --k 0
+python get_logits.py --k 0
+
+
